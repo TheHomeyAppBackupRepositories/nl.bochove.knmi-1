@@ -1,0 +1,23 @@
+<script>
+
+	Homey.setTitle(__('pair.start.title'));
+
+	Homey.on('errors', async (message) => {
+		await Homey.alert(message, 'error');
+        Homey.done();
+	});
+
+	Homey.on('continue', () => {
+        Homey.addDevice({
+            name: 'KNMI weather',
+            data: {
+                id: 'HomeyLocation',
+            },
+        }, ( err, result ) => {
+            if( err ) return Homey.error(err);
+            console.log( result);
+        });
+        Homey.done();
+	});
+
+</script>
