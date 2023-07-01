@@ -1,1 +1,2812 @@
-{"id":"nl.bochove.knmi","version":"0.1.15","compatibility":">=5.0.0","sdk":3,"name":{"en":"KNMI (Netherlands)","nl":"KNMI (Nederland)"},"description":{"en":"Stay up to date on all weather conditions and forecasts.","nl":"Houd het weer en de vooruitzichten in de gaten."},"tags":{"en":["Climate","Weather","Forecast","Temperature","Netherlands"],"nl":["Klimaat","Weer","Weersverwachting","Temperatuur","Nederland"]},"category":["climate"],"permissions":["homey:manager:geolocation"],"images":{"large":"/assets/images/large.png","small":"/assets/images/small.png"},"author":{"name":"Jonathan van Bochove"},"homeyCommunityTopicId":34228,"bugs":{"url":"https://github.com/bochove/nl.bochove.knmi/issues"},"brandColor":"#4000ff","source":"https://github.com/bochove/nl.bochove.knmi","flow":{"triggers":[{"id":"received-new-data","title":{"en":"Received new data from KNMI","nl":"Nieuwe gegevens van het KNMI"},"hint":{"en":"Quite a lot of variables received, current data and forecasts. All received data can be used in conditional and action cards.","nl":"Alle beschikbare gegevens van het KNMI worden ontsloten in variabelen die gebruikt kunnen worden in conditionele en actie kaarten."},"tokens":[{"name":"city","type":"string","title":{"en":"City","nl":"Plaats"},"example":{"en":"Location that the provided data is for.","nl":"De plaatsnaam waarop deze gegevens van toepassing zijn."}},{"name":"currentTemp","type":"number","title":{"en":"Current temperature","nl":"Huidige temperatuur"},"example":{"en":"32.1","nl":"32.1"}},{"name":"feelTemp","type":"number","title":{"en":"Current feeling temperature","nl":"Huidige gevoels-temperatuur"},"example":{"en":"32.1","nl":"32.1"}},{"name":"recap","type":"string","title":{"en":"Recap","nl":"Weerbeeld"},"example":{"en":"Cloudy","nl":"Bewolkt"}},{"name":"humidity","type":"number","title":{"en":"Humidity","nl":"Luchtvochtigheid"},"example":{"en":"90","nl":"90"}},{"name":"windDirection","type":"string","title":{"en":"Wind direction","nl":"Windrichting"},"example":{"en":"W","nl":"W"}},{"name":"windDirectionDegrees","type":"number","title":{"en":"Wind direction in degrees","nl":"Windrichting in graden"},"example":{"en":"180","nl":"180"}},{"name":"windSpeedMS","type":"number","title":{"en":"Wind speed MS","nl":"Windsnelheid MS"},"example":{"en":"2","nl":"2"}},{"name":"windForce","type":"number","title":{"en":"Wind force","nl":"Windkracht"},"example":{"en":"2","nl":"2"}},{"name":"windSpeedKMH","type":"number","title":{"en":"Wind speed KMH","nl":"Windsnelheid KMH"},"example":{"en":"10","nl":"10"}},{"name":"airPressure","type":"number","title":{"en":"Air pressure","nl":"Luchtdruk"},"example":{"en":"1000","nl":"1000"}},{"name":"airPressureMMHG","type":"number","title":{"en":"Air pressure MMHG","nl":"Luchtdruk MMHG"},"example":{"en":"755","nl":"755"}},{"name":"dewPoint","type":"number","title":{"en":"Dew point","nl":"Dauwpunt"},"example":{"en":"11","nl":"11"}},{"name":"sight","type":"number","title":{"en":"Sight","nl":"Zicht"},"example":{"en":"11","nl":"11"}},{"name":"expected","type":"string","title":{"en":"Expected","nl":"Verwachting"},"example":{"en":"Cloudy","nl":"Bewolkt"}},{"name":"sunUp","type":"string","title":{"en":"Sun up","nl":"Zonsopgang"},"example":{"en":"06:54","nl":"06:54"}},{"name":"sunDown","type":"string","title":{"en":"Sun down","nl":"Zonsondergang"},"example":{"en":"21:15","nl":"21:15"}},{"name":"expectedTodayRecap","type":"string","title":{"en":"Exp. recap today","nl":"Verw. weerbeeld vandaag"},"example":{"en":"Sunny","nl":"Regen"}},{"name":"expectedTodayMaxTemp","type":"number","title":{"en":"Exp. max temp todays","nl":"Verw. max. temperatuur"},"example":{"en":"18","nl":"18"}},{"name":"expectedTodayMinTemp","type":"number","title":{"en":"Exp. minimum temp today","nl":"Verw. min. temp."},"example":{"en":"7","nl":"7"}},{"name":"expectedTodayWindForce","type":"number","title":{"en":"Exp. windforce today","nl":"Verw. windkracht vandaag"},"example":{"en":"2","nl":"2"}},{"name":"expectedTodayWindSpeedMS","type":"number","title":{"en":"Exp. windspeed today MS","nl":"Verw. windkracht vandaag MS"},"example":{"en":"2","nl":"2"}},{"name":"expectedTodayWindSpeedKMH","type":"number","title":{"en":"Exp. windspeed today KMH","nl":"Verw. windkracht vandaag KMH"},"example":{"en":"5","nl":"5"}},{"name":"expectedTodayWindDirection","type":"string","title":{"en":"Exp. wind direction today","nl":"Verw. windrichting vandaag"},"example":{"en":"W","nl":"W"}},{"name":"expectedTodayWindDirectionDegrees","type":"number","title":{"en":"Exp. wind direction today in degrees","nl":"Verw. windrichting vandaag in graden"},"example":{"en":"180","nl":"180"}},{"name":"expectedTodayPrecipitation","type":"number","title":{"en":"Exp. precipitation today","nl":"Verw. neerslag vandaag"},"example":{"en":"2","nl":"2"}},{"name":"expectedTodaySunshine","type":"number","title":{"en":"Exp. sunshine today","nl":"Verw. zonkans vandaag"},"example":{"en":"55","nl":"55"}},{"name":"expectedTomorrowRecap","type":"string","title":{"en":"Exp. recap tomorrow","nl":"Verw. weerbeeld morgen"},"example":{"en":"Rainy","nl":"Bewolkt"}},{"name":"expectedTomorrowMaxTemp","type":"number","title":{"en":"Exp. max temp tomorrow","nl":"Verw. max temp morgen"},"example":{"en":"20","nl":"20"}},{"name":"expectedTomorrowMinTemp","type":"number","title":{"en":"Exp. min temp tomorrow","nl":"Verw. min temp morgen"},"example":{"en":"8","nl":"8"}},{"name":"expectedTomorrowWindForce","type":"number","title":{"en":"Exp. wind force tomorrow","nl":"Verw. windkracht morgen"},"example":{"en":"2","nl":"2"}},{"name":"expectedTomorrowWindSpeedMS","type":"number","title":{"en":"Exp. windspeed MS tomorrow","nl":"Verw. windsnelheid morgen MS"},"example":{"en":"5","nl":"5"}},{"name":"expectedTomorrowWindSpeedKMH","type":"number","title":{"en":"Exp. wind speed tomorrow KMH","nl":"Verw. windsnelheid morgen KMH"},"example":{"en":"10","nl":"10"}},{"name":"expectedTomorrowWindDirection","type":"string","title":{"en":"Exp. wind direction tomorrow","nl":"Verw. windrichting morgen"},"example":{"en":"W","nl":"W"}},{"name":"expectedTomorrowWindDirectionDegrees","type":"number","title":{"en":"Exp. wind direction tomorrow in degrees","nl":"Verw. windrichting morgen in graden"},"example":{"en":"180","nl":"180"}},{"name":"expectedTomorrowPrecipitation","type":"number","title":{"en":"Exp.precipitation tomorrow","nl":"Verw. neerslag morgen"},"example":{"en":"2","nl":"2"}},{"name":"expectedTomorrowSunshine","type":"number","title":{"en":"Exp, sunshine tomorrow","nl":"Verw. zonkans morgen"},"example":{"en":"55","nl":"55"}},{"name":"expectedDayAfterTomorrowRecap","type":"string","title":{"en":"Exp. recap day after tomorrow","nl":"Verw. weerbeeld overmorgen"},"example":{"en":"Cloudy","nl":"Bewolkt"}},{"name":"expectedDayAfterTomorrowMaxTemp","type":"number","title":{"en":"Exp. max temp day after tomorrow","nl":"Verw. max temp  overmorgen"},"example":{"en":"22","nl":"22"}},{"name":"expectedDayAfterTomorrowMinTemp","type":"number","title":{"en":"Exp. min temp day after tomorrow","nl":"Verw. min temp overmorgen"},"example":{"en":"8","nl":"8"}},{"name":"expectedDayAfterTomorrowWindForce","type":"number","title":{"en":"Exp. windforce day after tomorrow","nl":"Verw. windkracht overmorgen"},"example":{"en":"2","nl":"2"}},{"name":"expectedDayAfterTomorrowWindSpeedMS","type":"number","title":{"en":"Exp. wind speed MS day after tomorrow","nl":"Verw. windsnelheid MS overmorgen"},"example":{"en":"5","nl":"5"}},{"name":"expectedDayAfterTomorrowWindSpeedKMH","type":"number","title":{"en":"Exp. wind speed KMH day after tomorrow","nl":"Verw. windsnelheid KMH overmorgen"},"example":{"en":"5","nl":"5"}},{"name":"expectedDayAfterTomorrowWindDirection","type":"string","title":{"en":"Exp. wind direction day after tomorrow","nl":"Verw. windrichting overmorgen"},"example":{"en":"W","nl":"W"}},{"name":"expectedDayAfterTomorrowWindDirectionDegrees","type":"number","title":{"en":"Exp. wind direction day after tomorrow in degrees","nl":"Verw. windrichting overmorgen in graden"},"example":{"en":"180","nl":"180"}},{"name":"expectedDayAfterTomorrowPrecipitation","type":"number","title":{"en":"Exp. precipitation day after tomorrow","nl":"Verw. neerslag overmorgen"},"example":{"en":"2","nl":"2"}},{"name":"expectedDayAfterTomorrowSunshine","type":"number","title":{"en":"Exp. sunshine day after tomorrow","nl":"Verw. zonkans overmorgen"},"example":{"en":"55","nl":"55"}},{"name":"currentWeatherAlarm","type":"string","title":{"en":"Weather alarm","nl":"Weeralarm"},"example":{"en":"Code orange","nl":"Code oranje"}}]},{"id":"city_changed","title":{"en":"City changed","nl":"Plaats is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"recap_changed","title":{"en":"Recap changed","nl":"Weerbeeld is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"wind_direction_changed","title":{"en":"Wind direction changed","nl":"Windrichting is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"wind_direction_degrees_changed","title":{"en":"Wind direction in degrees changed","nl":"Windrichting in graden is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_changed","title":{"en":"Expected changed","nl":"Weersverwachting is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"sun_up_changed","title":{"en":"Sun up changed","nl":"Zonsopgang is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"sun_down_changed","title":{"en":"Sun down changed","nl":"Zonsondergang is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_recap_changed","title":{"en":"Exp. recap today changed","nl":"Verw. weerbeeld is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_wind_direction_changed","title":{"en":"Exp. wind direction today changed","nl":"Verw. windrichting vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_wind_direction_degrees_changed","title":{"en":"Exp. wind direction in degrees today changed","nl":"Verw. windrichting in graden vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_recap_changed","title":{"en":"Exp. recap tomorrow changed","nl":"Verw. weerbeeld morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_wind_direction_changed","title":{"en":"Exp. wind direction tomorrow changed","nl":"Verw. windrichting morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_wind_direction_degrees_changed","title":{"en":"Exp. wind direction in degrees tomorrow changed","nl":"Verw. windrichting in graden morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_recap_changed","title":{"en":"Exp. recap day after tomorrow changed","nl":"Verw. weerbeeld overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_wind_direction_changed","title":{"en":"Exp. wind direction day after tomorrow changed","nl":"Verw. windrichting overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_wind_direction_degrees_changed","title":{"en":"Exp. wind direction in degrees day after tomorrow changed","nl":"Verw. windrichting in graden overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"current_weather_alarm_changed","title":{"en":"Weather alarm changed","nl":"Weeralarm is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"string","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"string","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"current_temp_changed","title":{"en":"current temp changed","nl":"Huidige temp is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"feel_temp_changed","title":{"en":"feel temp changed","nl":"Gevoelstemperatuur is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"humidity_changed","title":{"en":"Humidity changed","nl":"Luchtvochtigheid is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"wind_speed_m_s_changed","title":{"en":"Wind speedMS changed","nl":"Windsnelheid MS is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"wind_force_changed","title":{"en":"wind force changed","nl":"Windkracht is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"wind_speed_k_m_h_changed","title":{"en":"Wind speed KMH changed","nl":"Windsnelheid KMH is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"air_pressure_changed","title":{"en":"Air pressure changed","nl":"Luchtdruk is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"air_pressure_m_m_h_g_changed","title":{"en":"Air pressure MMHG changed","nl":"Luchtdruk MMHG is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"dew_point_changed","title":{"en":"Dew point changed","nl":"Dauwpunt is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"sight_changed","title":{"en":"Sight changed","nl":"Zicht is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_max_temp_changed","title":{"en":"Exp. max temp today changed","nl":"Verw. max temp vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_min_temp_changed","title":{"en":"Exp. min temp today changed","nl":"Verw. min temp vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_wind_force_changed","title":{"en":"Exp. wind force today changed","nl":"Verw. windkracht vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_wind_speed_m_s_changed","title":{"en":"Exp. wind speed MS today changed","nl":"Verw. windsnelheid MS vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_wind_speed_k_m_h_changed","title":{"en":"Exp. wind speed KMH today changed","nl":"Verw. windsnelheid KMH vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_precipitation_changed","title":{"en":"Exp. precipitation today changed","nl":"Verw. neerslag vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_today_sunshine_changed","title":{"en":"Exp. sunshine today changed","nl":"Verw. zonkans vandaag is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_max_temp_changed","title":{"en":"Exp. max temp tomorrow changed","nl":"Verw. max temp morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_min_temp_changed","title":{"en":"Exp. min temp tomorrow changed","nl":"Verw. min temp morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_wind_force_changed","title":{"en":"Exp. wind force tomorrow changed","nl":"Verw. windkracht morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_wind_speed_m_s_changed","title":{"en":"Exp. wind speed MS tomorrow changed","nl":"Verw. windsnelheid MS morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_wind_speed_k_m_h_changed","title":{"en":"Exp. wind speed KMH tomorrow changed","nl":"Verw. windsnelheid KMH morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_precipitation_changed","title":{"en":"Exp. precipitation tomorrow changed","nl":"Verw. neerslag morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_tomorrow_sunshine_changed","title":{"en":"Exp. sunshine tomorrow changed","nl":"Verw. zonkans morgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_max_temp_changed","title":{"en":"Exp. max temp day after tomorrow changed","nl":"Verw. min temp overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_min_temp_changed","title":{"en":"Exp. min temp day after tomorrow changed","nl":"Verw. min temp overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_wind_force_changed","title":{"en":"Exp. wind force day after tomorrow changed","nl":"Verw. windkracht overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_wind_speed_m_s_changed","title":{"en":"Exp. wind speed MS day after tomorrow changed","nl":"Verw. windsnelheid MS overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_wind_speed_k_m_h_changed","title":{"en":"Exp. wind speed KMH day after tomorrow changed","nl":"Verw. windsnelheid KMH overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_precipitation_changed","title":{"en":"Exp. precipitation day after tomorrow changed","nl":"Verw. neerslag overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}]},{"id":"expected_day_after_tomorrow_sunshine_changed","title":{"en":"Exp. sunshine day after tomorrow changed","nl":"Verw. zonkans overmorgen is veranderd"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"}],"tokens":[{"name":"new_value","type":"number","title":{"en":"New value","nl":"Nieuwe waarde"}},{"name":"old_value","type":"number","title":{"en":"Old value","nl":"Oude waarde"}}],"actions":[{"id":"fetch-new-data","title":{"en":"Fetch new data","nl":"Haal nieuwe gegevens"}}]}],"conditions":[{"id":"slightly_cloudy_or_clear","title":{"en":"It !{{is|isn't}} slightly cloudy or clear ...","nl":"Het !{{is|is niet}} licht of on-bewolkt ..."},"titleFormatted":{"en":"It !{{is|isn't}} slightly cloudy or clear [[when]]","nl":"Het !{{is|is niet}} licht of onbewolkt [[when]]"},"args":[{"name":"device","type":"device","filter":"driver_id=knmi"},{"name":"when","type":"dropdown","values":[{"id":"now","label":{"en":"now","nl":"nu"}},{"id":"expected_today","label":{"en":"expected today","nl":"verwacht vandaag"}},{"id":"expected_tomorrow","label":{"en":"expected tomorrow","nl":"verwacht morgen"}},{"id":"expected_day_after_tomorrow","label":{"en":"expected day after tomorrow","nl":"verwacht overmorgen"}}]}]}],"actions":[{"id":"fetch-new-data","title":{"en":"Fetch new data","nl":"Haal nieuwe gegevens"}}]},"drivers":[{"id":"knmi","name":{"en":"KNMI","nl":"KNMI"},"class":"other","capabilities":["city","current_temp","feel_temp","recap","humidity","wind_direction","wind_direction_degrees","wind_speed_m_s","wind_force","wind_speed_k_m_h","air_pressure","air_pressure_m_m_h_g","dew_point","sight","expected","sun_up","sun_down","expected_today_recap","expected_today_max_temp","expected_today_min_temp","expected_today_wind_force","expected_today_wind_speed_m_s","expected_today_wind_speed_k_m_h","expected_today_wind_direction","expected_today_wind_direction_degrees","expected_today_precipitation","expected_today_sunshine","expected_tomorrow_recap","expected_tomorrow_max_temp","expected_tomorrow_min_temp","expected_tomorrow_wind_force","expected_tomorrow_wind_speed_m_s","expected_tomorrow_wind_speed_k_m_h","expected_tomorrow_wind_direction","expected_tomorrow_wind_direction_degrees","expected_tomorrow_precipitation","expected_tomorrow_sunshine","expected_day_after_tomorrow_recap","expected_day_after_tomorrow_max_temp","expected_day_after_tomorrow_min_temp","expected_day_after_tomorrow_wind_force","expected_day_after_tomorrow_wind_speed_m_s","expected_day_after_tomorrow_wind_speed_k_m_h","expected_day_after_tomorrow_wind_direction","expected_day_after_tomorrow_wind_direction_degrees","expected_day_after_tomorrow_precipitation","expected_day_after_tomorrow_sunshine","current_weather_alarm"],"images":{"large":"/drivers/knmi/assets/images/large.png","small":"/drivers/knmi/assets/images/small.png"},"pair":[{"id":"start"},{"id":"list_devices","template":"list_devices","navigation":{"next":"add_devices"}},{"id":"add_devices","template":"add_devices"}]}],"capabilities":{"city":{"type":"string","title":{"en":"city","nl":"Plaats"},"getable":true,"setable":false,"uiComponent":"sensor"},"current_temp":{"type":"number","title":{"en":"Current temperature","nl":"Huidige temperatuur"},"getable":true,"setable":false,"uiComponent":"sensor"},"feel_temp":{"type":"number","title":{"en":"Feel temperature","nl":"Gevoelstemperatuur"},"getable":true,"setable":false,"uiComponent":"sensor"},"recap":{"type":"string","title":{"en":"recap","nl":"Weerbeeld"},"getable":true,"setable":false,"uiComponent":"sensor"},"humidity":{"type":"number","title":{"en":"Humidity","nl":"Luchtvochtigheid"},"getable":true,"setable":false,"uiComponent":"sensor"},"wind_direction":{"type":"string","title":{"en":"Wind direction","nl":"Windrichting"},"getable":true,"setable":false,"uiComponent":"sensor"},"wind_direction_degrees":{"type":"number","title":{"en":"Wind direction in degrees","nl":"Windrichting in graden"},"getable":true,"setable":false,"uiComponent":"sensor"},"wind_speed_m_s":{"type":"number","title":{"en":"Wind speed MS","nl":"Windsnelheid MS"},"getable":true,"setable":false,"uiComponent":"sensor"},"wind_force":{"type":"number","title":{"en":"Wind force","nl":"Windkracht"},"getable":true,"setable":false,"uiComponent":"sensor"},"wind_speed_k_m_h":{"type":"number","title":{"en":"Wind speed KMH","nl":"Windsnelheid KMH"},"getable":true,"setable":false,"uiComponent":"sensor"},"air_pressure":{"type":"number","title":{"en":"Air pressure","nl":"Luchtdruk"},"getable":true,"setable":false,"uiComponent":"sensor"},"air_pressure_m_m_h_g":{"type":"number","title":{"en":"Air pressure MMHG","nl":"Luchtdruk MMHG"},"getable":true,"setable":false,"uiComponent":"sensor"},"dew_point":{"type":"number","title":{"en":"Dew point","nl":"Douwpunt"},"getable":true,"setable":false,"uiComponent":"sensor"},"sight":{"type":"number","title":{"en":"Sight","nl":"Zicht"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected":{"type":"string","title":{"en":"Expected","nl":"Verwachting"},"getable":true,"setable":false,"uiComponent":"sensor"},"sun_up":{"type":"string","title":{"en":"Sun up","nl":"Zonsopgang"},"getable":true,"setable":false,"uiComponent":"sensor"},"sun_down":{"type":"string","title":{"en":"Sun down","nl":"Zonsondergang"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_recap":{"type":"string","title":{"en":"Exp. recap today","nl":"Verw. weerbeeld vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_max_temp":{"type":"number","title":{"en":"Exp. max temp today","nl":"Verw. max temp vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_min_temp":{"type":"number","title":{"en":"Exp. min temp today","nl":"Verw. min temp vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_wind_force":{"type":"number","title":{"en":"Exp. wind force today","nl":"Verw. windkracht vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_wind_speed_m_s":{"type":"number","title":{"en":"Exp. wind speed MS today","nl":"Verw. windsnelheid MS vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_wind_speed_k_m_h":{"type":"number","title":{"en":"Exp. wind speed KMH today","nl":"Verw. windsnelheid KMH vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_wind_direction":{"type":"string","title":{"en":"Exp. wind direction today","nl":"Verw. windrichting vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_wind_direction_degrees":{"type":"number","title":{"en":"Exp. wind direction in degrees today","nl":"Verw. windrichting in graden vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_precipitation":{"type":"number","title":{"en":"Exp. precipitation today","nl":"Verw. neerslag vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_today_sunshine":{"type":"number","title":{"en":"Exp. sunshine today","nl":"Verw. zonkans vandaag"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_recap":{"type":"string","title":{"en":"Exp. recap tomorrow","nl":"Verw. weerbeeld morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_max_temp":{"type":"number","title":{"en":"Exp. max temp tomorrow","nl":"Verw. max temp morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_min_temp":{"type":"number","title":{"en":"Exp. min temp tomorrow","nl":"Verw. min temp morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_wind_force":{"type":"number","title":{"en":"Exp. wind force tomorrow","nl":"Verw. windkracht morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_wind_speed_m_s":{"type":"number","title":{"en":"Exp. wind speed MS tomorrow","nl":"Verw. windsnelheid MS morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_wind_speed_k_m_h":{"type":"number","title":{"en":"Exp. wind speed KMH","nl":"Verw. windsnelheid KMH morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_wind_direction":{"type":"string","title":{"en":"Exp. wind direction tomorrow","nl":"Verw. windrichting morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_wind_direction_degrees":{"type":"number","title":{"en":"Exp. wind direction in degrees tomorrow","nl":"Verw. windrichting in graden morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_precipitation":{"type":"number","title":{"en":"Exp. precipitation tomorrow","nl":"Verw. neerslag morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_tomorrow_sunshine":{"type":"number","title":{"en":"Exp. sunshine tomorrow","nl":"Verw. zonkans morgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_recap":{"type":"string","title":{"en":"Exp. recap day after tomorrow","nl":"Verw. weerbeeld overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_max_temp":{"type":"number","title":{"en":"Exp. max temp day after tomorrow","nl":"Verw. max temp overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_min_temp":{"type":"number","title":{"en":"Exp. min temp day after tomorrow","nl":"Verw. min temp overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_wind_force":{"type":"number","title":{"en":"Exp. wind force day after tomorrow","nl":"Verw. windkracht overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_wind_speed_m_s":{"type":"number","title":{"en":"Exp. wind speed MS day after tomorrow","nl":"Verw. windsnelheid MS overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_wind_speed_k_m_h":{"type":"number","title":{"en":"Exp. wind speed KMH day after tomorrow","nl":"Verw. windsnelheid KMH overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_wind_direction":{"type":"string","title":{"en":"Exp. wind direction day after tomorrow","nl":"Verw. windrichting overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_wind_direction_degrees":{"type":"number","title":{"en":"Exp. wind direction in degrees day after tomorrow","nl":"Verw. windrichting in graden overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_precipitation":{"type":"number","title":{"en":"Exp. precipitation day after tomorrow","nl":"Verw. neerslag overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"expected_day_after_tomorrow_sunshine":{"type":"number","title":{"en":"Exp. sunshine day after tomorrow","nl":"Verw. zonkans overmorgen"},"getable":true,"setable":false,"uiComponent":"sensor"},"current_weather_alarm":{"type":"string","title":{"en":"Weather alarm","nl":"Weeralarm"},"getable":true,"setable":false,"uiComponent":"sensor"}}}
+{
+  "id": "nl.bochove.knmi",
+  "version": "0.1.15",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "name": {
+    "en": "KNMI (Netherlands)",
+    "nl": "KNMI (Nederland)"
+  },
+  "description": {
+    "en": "Stay up to date on all weather conditions and forecasts.",
+    "nl": "Houd het weer en de vooruitzichten in de gaten."
+  },
+  "tags": {
+    "en": [
+      "Climate",
+      "Weather",
+      "Forecast",
+      "Temperature",
+      "Netherlands"
+    ],
+    "nl": [
+      "Klimaat",
+      "Weer",
+      "Weersverwachting",
+      "Temperatuur",
+      "Nederland"
+    ]
+  },
+  "category": [
+    "climate"
+  ],
+  "permissions": [
+    "homey:manager:geolocation"
+  ],
+  "images": {
+    "large": "/assets/images/large.png",
+    "small": "/assets/images/small.png"
+  },
+  "author": {
+    "name": "Jonathan van Bochove"
+  },
+  "homeyCommunityTopicId": 34228,
+  "bugs": {
+    "url": "https://github.com/bochove/nl.bochove.knmi/issues"
+  },
+  "brandColor": "#4000ff",
+  "source": "https://github.com/bochove/nl.bochove.knmi",
+  "flow": {
+    "triggers": [
+      {
+        "id": "received-new-data",
+        "title": {
+          "en": "Received new data from KNMI",
+          "nl": "Nieuwe gegevens van het KNMI"
+        },
+        "hint": {
+          "en": "Quite a lot of variables received, current data and forecasts. All received data can be used in conditional and action cards.",
+          "nl": "Alle beschikbare gegevens van het KNMI worden ontsloten in variabelen die gebruikt kunnen worden in conditionele en actie kaarten."
+        },
+        "tokens": [
+          {
+            "name": "city",
+            "type": "string",
+            "title": {
+              "en": "City",
+              "nl": "Plaats"
+            },
+            "example": {
+              "en": "Location that the provided data is for.",
+              "nl": "De plaatsnaam waarop deze gegevens van toepassing zijn."
+            }
+          },
+          {
+            "name": "currentTemp",
+            "type": "number",
+            "title": {
+              "en": "Current temperature",
+              "nl": "Huidige temperatuur"
+            },
+            "example": {
+              "en": "32.1",
+              "nl": "32.1"
+            }
+          },
+          {
+            "name": "feelTemp",
+            "type": "number",
+            "title": {
+              "en": "Current feeling temperature",
+              "nl": "Huidige gevoels-temperatuur"
+            },
+            "example": {
+              "en": "32.1",
+              "nl": "32.1"
+            }
+          },
+          {
+            "name": "recap",
+            "type": "string",
+            "title": {
+              "en": "Recap",
+              "nl": "Weerbeeld"
+            },
+            "example": {
+              "en": "Cloudy",
+              "nl": "Bewolkt"
+            }
+          },
+          {
+            "name": "humidity",
+            "type": "number",
+            "title": {
+              "en": "Humidity",
+              "nl": "Luchtvochtigheid"
+            },
+            "example": {
+              "en": "90",
+              "nl": "90"
+            }
+          },
+          {
+            "name": "windDirection",
+            "type": "string",
+            "title": {
+              "en": "Wind direction",
+              "nl": "Windrichting"
+            },
+            "example": {
+              "en": "W",
+              "nl": "W"
+            }
+          },
+          {
+            "name": "windDirectionDegrees",
+            "type": "number",
+            "title": {
+              "en": "Wind direction in degrees",
+              "nl": "Windrichting in graden"
+            },
+            "example": {
+              "en": "180",
+              "nl": "180"
+            }
+          },
+          {
+            "name": "windSpeedMS",
+            "type": "number",
+            "title": {
+              "en": "Wind speed MS",
+              "nl": "Windsnelheid MS"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "windForce",
+            "type": "number",
+            "title": {
+              "en": "Wind force",
+              "nl": "Windkracht"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "windSpeedKMH",
+            "type": "number",
+            "title": {
+              "en": "Wind speed KMH",
+              "nl": "Windsnelheid KMH"
+            },
+            "example": {
+              "en": "10",
+              "nl": "10"
+            }
+          },
+          {
+            "name": "airPressure",
+            "type": "number",
+            "title": {
+              "en": "Air pressure",
+              "nl": "Luchtdruk"
+            },
+            "example": {
+              "en": "1000",
+              "nl": "1000"
+            }
+          },
+          {
+            "name": "airPressureMMHG",
+            "type": "number",
+            "title": {
+              "en": "Air pressure MMHG",
+              "nl": "Luchtdruk MMHG"
+            },
+            "example": {
+              "en": "755",
+              "nl": "755"
+            }
+          },
+          {
+            "name": "dewPoint",
+            "type": "number",
+            "title": {
+              "en": "Dew point",
+              "nl": "Dauwpunt"
+            },
+            "example": {
+              "en": "11",
+              "nl": "11"
+            }
+          },
+          {
+            "name": "sight",
+            "type": "number",
+            "title": {
+              "en": "Sight",
+              "nl": "Zicht"
+            },
+            "example": {
+              "en": "11",
+              "nl": "11"
+            }
+          },
+          {
+            "name": "expected",
+            "type": "string",
+            "title": {
+              "en": "Expected",
+              "nl": "Verwachting"
+            },
+            "example": {
+              "en": "Cloudy",
+              "nl": "Bewolkt"
+            }
+          },
+          {
+            "name": "sunUp",
+            "type": "string",
+            "title": {
+              "en": "Sun up",
+              "nl": "Zonsopgang"
+            },
+            "example": {
+              "en": "06:54",
+              "nl": "06:54"
+            }
+          },
+          {
+            "name": "sunDown",
+            "type": "string",
+            "title": {
+              "en": "Sun down",
+              "nl": "Zonsondergang"
+            },
+            "example": {
+              "en": "21:15",
+              "nl": "21:15"
+            }
+          },
+          {
+            "name": "expectedTodayRecap",
+            "type": "string",
+            "title": {
+              "en": "Exp. recap today",
+              "nl": "Verw. weerbeeld vandaag"
+            },
+            "example": {
+              "en": "Sunny",
+              "nl": "Regen"
+            }
+          },
+          {
+            "name": "expectedTodayMaxTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. max temp todays",
+              "nl": "Verw. max. temperatuur"
+            },
+            "example": {
+              "en": "18",
+              "nl": "18"
+            }
+          },
+          {
+            "name": "expectedTodayMinTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. minimum temp today",
+              "nl": "Verw. min. temp."
+            },
+            "example": {
+              "en": "7",
+              "nl": "7"
+            }
+          },
+          {
+            "name": "expectedTodayWindForce",
+            "type": "number",
+            "title": {
+              "en": "Exp. windforce today",
+              "nl": "Verw. windkracht vandaag"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedTodayWindSpeedMS",
+            "type": "number",
+            "title": {
+              "en": "Exp. windspeed today MS",
+              "nl": "Verw. windkracht vandaag MS"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedTodayWindSpeedKMH",
+            "type": "number",
+            "title": {
+              "en": "Exp. windspeed today KMH",
+              "nl": "Verw. windkracht vandaag KMH"
+            },
+            "example": {
+              "en": "5",
+              "nl": "5"
+            }
+          },
+          {
+            "name": "expectedTodayWindDirection",
+            "type": "string",
+            "title": {
+              "en": "Exp. wind direction today",
+              "nl": "Verw. windrichting vandaag"
+            },
+            "example": {
+              "en": "W",
+              "nl": "W"
+            }
+          },
+          {
+            "name": "expectedTodayWindDirectionDegrees",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind direction today in degrees",
+              "nl": "Verw. windrichting vandaag in graden"
+            },
+            "example": {
+              "en": "180",
+              "nl": "180"
+            }
+          },
+          {
+            "name": "expectedTodayPrecipitation",
+            "type": "number",
+            "title": {
+              "en": "Exp. precipitation today",
+              "nl": "Verw. neerslag vandaag"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedTodaySunshine",
+            "type": "number",
+            "title": {
+              "en": "Exp. sunshine today",
+              "nl": "Verw. zonkans vandaag"
+            },
+            "example": {
+              "en": "55",
+              "nl": "55"
+            }
+          },
+          {
+            "name": "expectedTomorrowRecap",
+            "type": "string",
+            "title": {
+              "en": "Exp. recap tomorrow",
+              "nl": "Verw. weerbeeld morgen"
+            },
+            "example": {
+              "en": "Rainy",
+              "nl": "Bewolkt"
+            }
+          },
+          {
+            "name": "expectedTomorrowMaxTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. max temp tomorrow",
+              "nl": "Verw. max temp morgen"
+            },
+            "example": {
+              "en": "20",
+              "nl": "20"
+            }
+          },
+          {
+            "name": "expectedTomorrowMinTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. min temp tomorrow",
+              "nl": "Verw. min temp morgen"
+            },
+            "example": {
+              "en": "8",
+              "nl": "8"
+            }
+          },
+          {
+            "name": "expectedTomorrowWindForce",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind force tomorrow",
+              "nl": "Verw. windkracht morgen"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedTomorrowWindSpeedMS",
+            "type": "number",
+            "title": {
+              "en": "Exp. windspeed MS tomorrow",
+              "nl": "Verw. windsnelheid morgen MS"
+            },
+            "example": {
+              "en": "5",
+              "nl": "5"
+            }
+          },
+          {
+            "name": "expectedTomorrowWindSpeedKMH",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind speed tomorrow KMH",
+              "nl": "Verw. windsnelheid morgen KMH"
+            },
+            "example": {
+              "en": "10",
+              "nl": "10"
+            }
+          },
+          {
+            "name": "expectedTomorrowWindDirection",
+            "type": "string",
+            "title": {
+              "en": "Exp. wind direction tomorrow",
+              "nl": "Verw. windrichting morgen"
+            },
+            "example": {
+              "en": "W",
+              "nl": "W"
+            }
+          },
+          {
+            "name": "expectedTomorrowWindDirectionDegrees",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind direction tomorrow in degrees",
+              "nl": "Verw. windrichting morgen in graden"
+            },
+            "example": {
+              "en": "180",
+              "nl": "180"
+            }
+          },
+          {
+            "name": "expectedTomorrowPrecipitation",
+            "type": "number",
+            "title": {
+              "en": "Exp.precipitation tomorrow",
+              "nl": "Verw. neerslag morgen"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedTomorrowSunshine",
+            "type": "number",
+            "title": {
+              "en": "Exp, sunshine tomorrow",
+              "nl": "Verw. zonkans morgen"
+            },
+            "example": {
+              "en": "55",
+              "nl": "55"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowRecap",
+            "type": "string",
+            "title": {
+              "en": "Exp. recap day after tomorrow",
+              "nl": "Verw. weerbeeld overmorgen"
+            },
+            "example": {
+              "en": "Cloudy",
+              "nl": "Bewolkt"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowMaxTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. max temp day after tomorrow",
+              "nl": "Verw. max temp  overmorgen"
+            },
+            "example": {
+              "en": "22",
+              "nl": "22"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowMinTemp",
+            "type": "number",
+            "title": {
+              "en": "Exp. min temp day after tomorrow",
+              "nl": "Verw. min temp overmorgen"
+            },
+            "example": {
+              "en": "8",
+              "nl": "8"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowWindForce",
+            "type": "number",
+            "title": {
+              "en": "Exp. windforce day after tomorrow",
+              "nl": "Verw. windkracht overmorgen"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowWindSpeedMS",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind speed MS day after tomorrow",
+              "nl": "Verw. windsnelheid MS overmorgen"
+            },
+            "example": {
+              "en": "5",
+              "nl": "5"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowWindSpeedKMH",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind speed KMH day after tomorrow",
+              "nl": "Verw. windsnelheid KMH overmorgen"
+            },
+            "example": {
+              "en": "5",
+              "nl": "5"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowWindDirection",
+            "type": "string",
+            "title": {
+              "en": "Exp. wind direction day after tomorrow",
+              "nl": "Verw. windrichting overmorgen"
+            },
+            "example": {
+              "en": "W",
+              "nl": "W"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowWindDirectionDegrees",
+            "type": "number",
+            "title": {
+              "en": "Exp. wind direction day after tomorrow in degrees",
+              "nl": "Verw. windrichting overmorgen in graden"
+            },
+            "example": {
+              "en": "180",
+              "nl": "180"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowPrecipitation",
+            "type": "number",
+            "title": {
+              "en": "Exp. precipitation day after tomorrow",
+              "nl": "Verw. neerslag overmorgen"
+            },
+            "example": {
+              "en": "2",
+              "nl": "2"
+            }
+          },
+          {
+            "name": "expectedDayAfterTomorrowSunshine",
+            "type": "number",
+            "title": {
+              "en": "Exp. sunshine day after tomorrow",
+              "nl": "Verw. zonkans overmorgen"
+            },
+            "example": {
+              "en": "55",
+              "nl": "55"
+            }
+          },
+          {
+            "name": "currentWeatherAlarm",
+            "type": "string",
+            "title": {
+              "en": "Weather alarm",
+              "nl": "Weeralarm"
+            },
+            "example": {
+              "en": "Code orange",
+              "nl": "Code oranje"
+            }
+          }
+        ]
+      },
+      {
+        "id": "city_changed",
+        "title": {
+          "en": "City changed",
+          "nl": "Plaats is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "recap_changed",
+        "title": {
+          "en": "Recap changed",
+          "nl": "Weerbeeld is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wind_direction_changed",
+        "title": {
+          "en": "Wind direction changed",
+          "nl": "Windrichting is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wind_direction_degrees_changed",
+        "title": {
+          "en": "Wind direction in degrees changed",
+          "nl": "Windrichting in graden is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_changed",
+        "title": {
+          "en": "Expected changed",
+          "nl": "Weersverwachting is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sun_up_changed",
+        "title": {
+          "en": "Sun up changed",
+          "nl": "Zonsopgang is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sun_down_changed",
+        "title": {
+          "en": "Sun down changed",
+          "nl": "Zonsondergang is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_recap_changed",
+        "title": {
+          "en": "Exp. recap today changed",
+          "nl": "Verw. weerbeeld is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_wind_direction_changed",
+        "title": {
+          "en": "Exp. wind direction today changed",
+          "nl": "Verw. windrichting vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_wind_direction_degrees_changed",
+        "title": {
+          "en": "Exp. wind direction in degrees today changed",
+          "nl": "Verw. windrichting in graden vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_recap_changed",
+        "title": {
+          "en": "Exp. recap tomorrow changed",
+          "nl": "Verw. weerbeeld morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_wind_direction_changed",
+        "title": {
+          "en": "Exp. wind direction tomorrow changed",
+          "nl": "Verw. windrichting morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_wind_direction_degrees_changed",
+        "title": {
+          "en": "Exp. wind direction in degrees tomorrow changed",
+          "nl": "Verw. windrichting in graden morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_recap_changed",
+        "title": {
+          "en": "Exp. recap day after tomorrow changed",
+          "nl": "Verw. weerbeeld overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_wind_direction_changed",
+        "title": {
+          "en": "Exp. wind direction day after tomorrow changed",
+          "nl": "Verw. windrichting overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_wind_direction_degrees_changed",
+        "title": {
+          "en": "Exp. wind direction in degrees day after tomorrow changed",
+          "nl": "Verw. windrichting in graden overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "current_weather_alarm_changed",
+        "title": {
+          "en": "Weather alarm changed",
+          "nl": "Weeralarm is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "string",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "string",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "current_temp_changed",
+        "title": {
+          "en": "current temp changed",
+          "nl": "Huidige temp is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "feel_temp_changed",
+        "title": {
+          "en": "feel temp changed",
+          "nl": "Gevoelstemperatuur is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "humidity_changed",
+        "title": {
+          "en": "Humidity changed",
+          "nl": "Luchtvochtigheid is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wind_speed_m_s_changed",
+        "title": {
+          "en": "Wind speedMS changed",
+          "nl": "Windsnelheid MS is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wind_force_changed",
+        "title": {
+          "en": "wind force changed",
+          "nl": "Windkracht is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "wind_speed_k_m_h_changed",
+        "title": {
+          "en": "Wind speed KMH changed",
+          "nl": "Windsnelheid KMH is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "air_pressure_changed",
+        "title": {
+          "en": "Air pressure changed",
+          "nl": "Luchtdruk is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "air_pressure_m_m_h_g_changed",
+        "title": {
+          "en": "Air pressure MMHG changed",
+          "nl": "Luchtdruk MMHG is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "dew_point_changed",
+        "title": {
+          "en": "Dew point changed",
+          "nl": "Dauwpunt is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "sight_changed",
+        "title": {
+          "en": "Sight changed",
+          "nl": "Zicht is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_max_temp_changed",
+        "title": {
+          "en": "Exp. max temp today changed",
+          "nl": "Verw. max temp vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_min_temp_changed",
+        "title": {
+          "en": "Exp. min temp today changed",
+          "nl": "Verw. min temp vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_wind_force_changed",
+        "title": {
+          "en": "Exp. wind force today changed",
+          "nl": "Verw. windkracht vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_wind_speed_m_s_changed",
+        "title": {
+          "en": "Exp. wind speed MS today changed",
+          "nl": "Verw. windsnelheid MS vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_wind_speed_k_m_h_changed",
+        "title": {
+          "en": "Exp. wind speed KMH today changed",
+          "nl": "Verw. windsnelheid KMH vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_precipitation_changed",
+        "title": {
+          "en": "Exp. precipitation today changed",
+          "nl": "Verw. neerslag vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_today_sunshine_changed",
+        "title": {
+          "en": "Exp. sunshine today changed",
+          "nl": "Verw. zonkans vandaag is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_max_temp_changed",
+        "title": {
+          "en": "Exp. max temp tomorrow changed",
+          "nl": "Verw. max temp morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_min_temp_changed",
+        "title": {
+          "en": "Exp. min temp tomorrow changed",
+          "nl": "Verw. min temp morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_wind_force_changed",
+        "title": {
+          "en": "Exp. wind force tomorrow changed",
+          "nl": "Verw. windkracht morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_wind_speed_m_s_changed",
+        "title": {
+          "en": "Exp. wind speed MS tomorrow changed",
+          "nl": "Verw. windsnelheid MS morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_wind_speed_k_m_h_changed",
+        "title": {
+          "en": "Exp. wind speed KMH tomorrow changed",
+          "nl": "Verw. windsnelheid KMH morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_precipitation_changed",
+        "title": {
+          "en": "Exp. precipitation tomorrow changed",
+          "nl": "Verw. neerslag morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_tomorrow_sunshine_changed",
+        "title": {
+          "en": "Exp. sunshine tomorrow changed",
+          "nl": "Verw. zonkans morgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_max_temp_changed",
+        "title": {
+          "en": "Exp. max temp day after tomorrow changed",
+          "nl": "Verw. min temp overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_min_temp_changed",
+        "title": {
+          "en": "Exp. min temp day after tomorrow changed",
+          "nl": "Verw. min temp overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_wind_force_changed",
+        "title": {
+          "en": "Exp. wind force day after tomorrow changed",
+          "nl": "Verw. windkracht overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_wind_speed_m_s_changed",
+        "title": {
+          "en": "Exp. wind speed MS day after tomorrow changed",
+          "nl": "Verw. windsnelheid MS overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_wind_speed_k_m_h_changed",
+        "title": {
+          "en": "Exp. wind speed KMH day after tomorrow changed",
+          "nl": "Verw. windsnelheid KMH overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_precipitation_changed",
+        "title": {
+          "en": "Exp. precipitation day after tomorrow changed",
+          "nl": "Verw. neerslag overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ]
+      },
+      {
+        "id": "expected_day_after_tomorrow_sunshine_changed",
+        "title": {
+          "en": "Exp. sunshine day after tomorrow changed",
+          "nl": "Verw. zonkans overmorgen is veranderd"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          }
+        ],
+        "tokens": [
+          {
+            "name": "new_value",
+            "type": "number",
+            "title": {
+              "en": "New value",
+              "nl": "Nieuwe waarde"
+            }
+          },
+          {
+            "name": "old_value",
+            "type": "number",
+            "title": {
+              "en": "Old value",
+              "nl": "Oude waarde"
+            }
+          }
+        ],
+        "actions": [
+          {
+            "id": "fetch-new-data",
+            "title": {
+              "en": "Fetch new data",
+              "nl": "Haal nieuwe gegevens"
+            }
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "slightly_cloudy_or_clear",
+        "title": {
+          "en": "It !{{is|isn't}} slightly cloudy or clear ...",
+          "nl": "Het !{{is|is niet}} licht of on-bewolkt ..."
+        },
+        "titleFormatted": {
+          "en": "It !{{is|isn't}} slightly cloudy or clear [[when]]",
+          "nl": "Het !{{is|is niet}} licht of onbewolkt [[when]]"
+        },
+        "args": [
+          {
+            "name": "device",
+            "type": "device",
+            "filter": "driver_id=knmi"
+          },
+          {
+            "name": "when",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "now",
+                "label": {
+                  "en": "now",
+                  "nl": "nu"
+                }
+              },
+              {
+                "id": "expected_today",
+                "label": {
+                  "en": "expected today",
+                  "nl": "verwacht vandaag"
+                }
+              },
+              {
+                "id": "expected_tomorrow",
+                "label": {
+                  "en": "expected tomorrow",
+                  "nl": "verwacht morgen"
+                }
+              },
+              {
+                "id": "expected_day_after_tomorrow",
+                "label": {
+                  "en": "expected day after tomorrow",
+                  "nl": "verwacht overmorgen"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "fetch-new-data",
+        "title": {
+          "en": "Fetch new data",
+          "nl": "Haal nieuwe gegevens"
+        }
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "knmi",
+      "name": {
+        "en": "KNMI",
+        "nl": "KNMI"
+      },
+      "class": "other",
+      "capabilities": [
+        "city",
+        "current_temp",
+        "feel_temp",
+        "recap",
+        "humidity",
+        "wind_direction",
+        "wind_direction_degrees",
+        "wind_speed_m_s",
+        "wind_force",
+        "wind_speed_k_m_h",
+        "air_pressure",
+        "air_pressure_m_m_h_g",
+        "dew_point",
+        "sight",
+        "expected",
+        "sun_up",
+        "sun_down",
+        "expected_today_recap",
+        "expected_today_max_temp",
+        "expected_today_min_temp",
+        "expected_today_wind_force",
+        "expected_today_wind_speed_m_s",
+        "expected_today_wind_speed_k_m_h",
+        "expected_today_wind_direction",
+        "expected_today_wind_direction_degrees",
+        "expected_today_precipitation",
+        "expected_today_sunshine",
+        "expected_tomorrow_recap",
+        "expected_tomorrow_max_temp",
+        "expected_tomorrow_min_temp",
+        "expected_tomorrow_wind_force",
+        "expected_tomorrow_wind_speed_m_s",
+        "expected_tomorrow_wind_speed_k_m_h",
+        "expected_tomorrow_wind_direction",
+        "expected_tomorrow_wind_direction_degrees",
+        "expected_tomorrow_precipitation",
+        "expected_tomorrow_sunshine",
+        "expected_day_after_tomorrow_recap",
+        "expected_day_after_tomorrow_max_temp",
+        "expected_day_after_tomorrow_min_temp",
+        "expected_day_after_tomorrow_wind_force",
+        "expected_day_after_tomorrow_wind_speed_m_s",
+        "expected_day_after_tomorrow_wind_speed_k_m_h",
+        "expected_day_after_tomorrow_wind_direction",
+        "expected_day_after_tomorrow_wind_direction_degrees",
+        "expected_day_after_tomorrow_precipitation",
+        "expected_day_after_tomorrow_sunshine",
+        "current_weather_alarm"
+      ],
+      "images": {
+        "large": "/drivers/knmi/assets/images/large.png",
+        "small": "/drivers/knmi/assets/images/small.png"
+      },
+      "pair": [
+        {
+          "id": "start"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ]
+    }
+  ],
+  "capabilities": {
+    "city": {
+      "type": "string",
+      "title": {
+        "en": "city",
+        "nl": "Plaats"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "current_temp": {
+      "type": "number",
+      "title": {
+        "en": "Current temperature",
+        "nl": "Huidige temperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "feel_temp": {
+      "type": "number",
+      "title": {
+        "en": "Feel temperature",
+        "nl": "Gevoelstemperatuur"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "recap": {
+      "type": "string",
+      "title": {
+        "en": "recap",
+        "nl": "Weerbeeld"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "humidity": {
+      "type": "number",
+      "title": {
+        "en": "Humidity",
+        "nl": "Luchtvochtigheid"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Wind direction",
+        "nl": "Windrichting"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "wind_direction_degrees": {
+      "type": "number",
+      "title": {
+        "en": "Wind direction in degrees",
+        "nl": "Windrichting in graden"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "wind_speed_m_s": {
+      "type": "number",
+      "title": {
+        "en": "Wind speed MS",
+        "nl": "Windsnelheid MS"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "wind_force": {
+      "type": "number",
+      "title": {
+        "en": "Wind force",
+        "nl": "Windkracht"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "wind_speed_k_m_h": {
+      "type": "number",
+      "title": {
+        "en": "Wind speed KMH",
+        "nl": "Windsnelheid KMH"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "air_pressure": {
+      "type": "number",
+      "title": {
+        "en": "Air pressure",
+        "nl": "Luchtdruk"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "air_pressure_m_m_h_g": {
+      "type": "number",
+      "title": {
+        "en": "Air pressure MMHG",
+        "nl": "Luchtdruk MMHG"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "dew_point": {
+      "type": "number",
+      "title": {
+        "en": "Dew point",
+        "nl": "Douwpunt"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "sight": {
+      "type": "number",
+      "title": {
+        "en": "Sight",
+        "nl": "Zicht"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected": {
+      "type": "string",
+      "title": {
+        "en": "Expected",
+        "nl": "Verwachting"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "sun_up": {
+      "type": "string",
+      "title": {
+        "en": "Sun up",
+        "nl": "Zonsopgang"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "sun_down": {
+      "type": "string",
+      "title": {
+        "en": "Sun down",
+        "nl": "Zonsondergang"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_recap": {
+      "type": "string",
+      "title": {
+        "en": "Exp. recap today",
+        "nl": "Verw. weerbeeld vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_max_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. max temp today",
+        "nl": "Verw. max temp vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_min_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. min temp today",
+        "nl": "Verw. min temp vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_wind_force": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind force today",
+        "nl": "Verw. windkracht vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_wind_speed_m_s": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed MS today",
+        "nl": "Verw. windsnelheid MS vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_wind_speed_k_m_h": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed KMH today",
+        "nl": "Verw. windsnelheid KMH vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Exp. wind direction today",
+        "nl": "Verw. windrichting vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_wind_direction_degrees": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind direction in degrees today",
+        "nl": "Verw. windrichting in graden vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_precipitation": {
+      "type": "number",
+      "title": {
+        "en": "Exp. precipitation today",
+        "nl": "Verw. neerslag vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_today_sunshine": {
+      "type": "number",
+      "title": {
+        "en": "Exp. sunshine today",
+        "nl": "Verw. zonkans vandaag"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_recap": {
+      "type": "string",
+      "title": {
+        "en": "Exp. recap tomorrow",
+        "nl": "Verw. weerbeeld morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_max_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. max temp tomorrow",
+        "nl": "Verw. max temp morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_min_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. min temp tomorrow",
+        "nl": "Verw. min temp morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_wind_force": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind force tomorrow",
+        "nl": "Verw. windkracht morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_wind_speed_m_s": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed MS tomorrow",
+        "nl": "Verw. windsnelheid MS morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_wind_speed_k_m_h": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed KMH",
+        "nl": "Verw. windsnelheid KMH morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Exp. wind direction tomorrow",
+        "nl": "Verw. windrichting morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_wind_direction_degrees": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind direction in degrees tomorrow",
+        "nl": "Verw. windrichting in graden morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_precipitation": {
+      "type": "number",
+      "title": {
+        "en": "Exp. precipitation tomorrow",
+        "nl": "Verw. neerslag morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_tomorrow_sunshine": {
+      "type": "number",
+      "title": {
+        "en": "Exp. sunshine tomorrow",
+        "nl": "Verw. zonkans morgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_recap": {
+      "type": "string",
+      "title": {
+        "en": "Exp. recap day after tomorrow",
+        "nl": "Verw. weerbeeld overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_max_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. max temp day after tomorrow",
+        "nl": "Verw. max temp overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_min_temp": {
+      "type": "number",
+      "title": {
+        "en": "Exp. min temp day after tomorrow",
+        "nl": "Verw. min temp overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_wind_force": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind force day after tomorrow",
+        "nl": "Verw. windkracht overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_wind_speed_m_s": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed MS day after tomorrow",
+        "nl": "Verw. windsnelheid MS overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_wind_speed_k_m_h": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind speed KMH day after tomorrow",
+        "nl": "Verw. windsnelheid KMH overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_wind_direction": {
+      "type": "string",
+      "title": {
+        "en": "Exp. wind direction day after tomorrow",
+        "nl": "Verw. windrichting overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_wind_direction_degrees": {
+      "type": "number",
+      "title": {
+        "en": "Exp. wind direction in degrees day after tomorrow",
+        "nl": "Verw. windrichting in graden overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_precipitation": {
+      "type": "number",
+      "title": {
+        "en": "Exp. precipitation day after tomorrow",
+        "nl": "Verw. neerslag overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "expected_day_after_tomorrow_sunshine": {
+      "type": "number",
+      "title": {
+        "en": "Exp. sunshine day after tomorrow",
+        "nl": "Verw. zonkans overmorgen"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    },
+    "current_weather_alarm": {
+      "type": "string",
+      "title": {
+        "en": "Weather alarm",
+        "nl": "Weeralarm"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": "sensor"
+    }
+  }
+}
